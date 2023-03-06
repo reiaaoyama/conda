@@ -106,7 +106,23 @@ If a newer version of conda is available, type ``y`` to update:
     Proceed ([y]/n)? y
 
 .. tip::
-   We recommend that you always keep conda updated to the latest version.
+   * We recommend that you always keep conda updated to the latest version
+   
+   * If your computer connects to the Internet via a proxy server with intermediate certificate (SSL bumping) -
+     this is very common in a corporate computing environment. You may see an error such as:
+     
+     .. code::
+
+        % conda update conda
+
+        Collecting package metadata (current_repodata.json): failed
+
+        CondaSSLError: Encountered an SSL error. Most likely a certificate verification issue.
+   
+     You can set conda to ignore the SSL cert verification with the following command (use with caution)
+     
+     ``conda config --set ssl_verify False``
+   
 
 .. _managing-envs:
 
